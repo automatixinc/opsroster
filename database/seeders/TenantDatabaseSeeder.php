@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Database\Seeders;
+
+use App\Models\Post;
+use Illuminate\Database\Seeder;
+use App\Models\User;
+
+class TenantDatabaseSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        Post::create([
+            'user_id' => User::first()->id,
+            'title' => 'Welcome',
+            'body' => "Try creating another blog post here, then register as another tenant on your central domain. You'll see the data separation in practice.",
+        ]);
+
+        Post::create([
+            'user_id' => User::first()->id,
+            'title' => 'README!',
+            'body' => "Be sure to check the README.md file. It explains how things are structured, why they're structured that way and how to make the most out of this boilerplate.",
+        ]);
+
+        Post::create([
+            'user_id' => User::first()->id,
+            'title' => '🚀 Ship fast',
+            'body' => "As always, don't forget to ship fast 😎. We hope this boilerplate saves you a lot of development time and lets you get to production much faster.",
+        ]);
+    }
+}
