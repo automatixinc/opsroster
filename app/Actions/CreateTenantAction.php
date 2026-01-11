@@ -42,7 +42,7 @@ class CreateTenantAction
                 // If the teams feature is enabled, also update the admin's team name
                 if (Jetstream::hasTeamFeatures()) {
                     $admin->currentTeam?->update([
-                        'name' => "{$admin->name}'s Team",
+                        'name' => "{$data['company']} Team",
                     ]);
                 }
             }
